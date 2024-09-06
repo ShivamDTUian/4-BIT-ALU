@@ -5,7 +5,7 @@
 // 
 // Create Date:    00:02:03 09/07/2024 
 // Design Name: 
-// Module Name:    comparator 
+// Module Name:    comparator_ALU
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
