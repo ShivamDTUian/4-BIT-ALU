@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    23:48:03 09/06/2024 
+// Create Date:    12:02:03 09/06/2024 
 // Design Name: 
-// Module Name:    Comparator 
+// Module Name:    comparator 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
