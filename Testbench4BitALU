@@ -6,7 +6,7 @@
 //
 // Create Date:   23:57:59 09/06/2024
 // Design Name:   ALU_4bit
-// Module Name:   D:/AssignmentsDone/ALU/ALU_4bit_tb.v
+// Module Name:   Testbench4BitALU.v
 // Project Name:  ALU
 // Target Device:  
 // Tool versions:  
