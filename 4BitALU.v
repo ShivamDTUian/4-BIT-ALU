@@ -3,12 +3,12 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    15:28:24 09/06/2024 
-// Design Name:    Arithmatic
-// Module Name:    ALU_4bit 
-// Project Name:   4BitALU
+// Create Date:    23:52:24 06/09/2024 
+// Design Name: 
+// Module Name:    ALU 
+// Project Name: 
 // Target Devices: 
-// Tool versions:  ISE
+// Tool versions: 
 // Description: 
 //
 // Dependencies: 
