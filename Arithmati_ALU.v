@@ -6,7 +6,7 @@
 // 
 // Create Date:    00:00:13 09/07/2024 
 // Design Name: 
-// Module Name:    Arithmetic 
+// Module Name:    Arithmetic_ALU
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
