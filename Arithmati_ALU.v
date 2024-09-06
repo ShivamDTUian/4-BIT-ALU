@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    23:59:13 09/06/2024 
+// Create Date:    15:11:03 03/18/2017 
 // Design Name: 
-// Module Name:    Arithmetic 
+// Module Name:    comparator 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
@@ -18,34 +18,55 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module Arithmetic(arith_out, C, V, A, B, Opcode);
+module Comparator(comp_out, A, B, Opcode);
 
 	input [3:0] A, B, Opcode;
-	output [3:0] arith_out;
-	output C, V;
-	wire [3:0] sum1, sum2, sum3, sum4, temp_C, temp_V;
+	output [3:0] comp_out;
+	wire AeB, AnB, AgB, AlB;
 
-	add_sub_4bit a1(sum1, temp_C[0], temp_V[0], A, B, 1'b0);
-	add_sub_4bit a2(sum2, temp_C[1], temp_V[1], A, 4'b0001, 1'b0);
-	add_sub_4bit a3(sum3, temp_C[2], temp_V[2], A, B, 1'b1);
-	add_sub_4bit a4(sum4, temp_C[3], temp_V[3], A, 4'b0001, 1'b1);
+	assign AeB = (A == B);
+	assign AnB = (A != B);
 
-	assign arith_out = (Opcode == 4'b0100) ? sum1
-						  : (Opcode == 4'b0101) ? sum2
-						  : (Opcode == 4'b0110) ? sum3
-						  : (Opcode == 4'b0111) ? sum4
-						  : 4'b0000;
+	assign comp_out = (Opcode == 4'b1100) ? {3'b000, AeB}
+						 : (Opcode == 4'b1101) ? {3'b000, AnB}
+						 : (Opcode == 4'b1110) ? {3'b000, ($signed(A) > $signed(B))}
+						 : (Opcode == 4'b1111) ? {3'b000, ($signed(A) < $signed(B))}
+						 : 4'b0000;
 
-	assign C = (Opcode == 4'b0100) ? temp_C[0]
-						  : (Opcode == 4'b0101) ? temp_C[1]
-						  : (Opcode == 4'b0110) ? temp_C[2]
-						  : (Opcode == 4'b0111) ? temp_C[3]
-						  : 1'b0;
+endmodule
+ 32 changes: 32 additions & 0 deletions32  
+Logical.v
+Original file line number	Diff line number	Diff line change
+@@ -0,0 +1,32 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date:    23:59:32 09/06/2024
+// Design Name: 
+// Module Name:    logical 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
+//
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+//////////////////////////////////////////////////////////////////////////////////
+module Logical(logical_out, A, B, Opcode);
 
-	assign V = (Opcode == 4'b0100) ? temp_V[0]
-						  : (Opcode == 4'b0101) ? temp_V[1]
-						  : (Opcode == 4'b0110) ? temp_V[2]
-						  : (Opcode == 4'b0111) ? temp_V[3]
-						  : 1'b0;
+	output [3:0] logical_out;
+	input [3:0] A, B, Opcode;
+
+	assign logical_out = (Opcode == 4'b1000) ? (A & B)
+							 : (Opcode == 4'b1001) ? (A | B)
+							 : (Opcode == 4'b1010) ? (A ^ B)
+							 : (Opcode == 4'b1011) ? ~(A | B)
+							 : 4'b0000;
 
 endmodule
