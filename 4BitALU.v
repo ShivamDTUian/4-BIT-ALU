@@ -5,7 +5,7 @@
 // 
 // Create Date:    23:52:24 06/09/2024 
 // Design Name: 
-// Module Name:    ALU 
+// Module Name:    4BitALU 
 // Project Name: 
 // Target Devices: 
 // Tool versions: 
